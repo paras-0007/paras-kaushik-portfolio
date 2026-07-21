@@ -9,19 +9,19 @@ export async function generateMetadata(): Promise<Metadata> {
   const base = new URL(`${protocol}://${host}`);
   return {
     metadataBase: base,
-    title: "Paras Kaushik - AI Systems Engineer",
-    description: "Paras Kaushik architects multimodal AI systems that turn unstructured data into reliable decisions at production scale.",
+    title: "Paras Kaushik - AI Engineer & Product Founder",
+    description: "AI engineer and product founder building model-to-market products across document intelligence, voice agents, automation, and applied AI.",
     openGraph: {
-      title: "Paras Kaushik - AI Systems Engineer",
-      description: "Unstructured data into decisions at production scale.",
+      title: "Paras Kaushik - AI Engineer & Product Founder",
+      description: "Models are useful. Systems create impact.",
       type: "website",
-      images: [{ url: new URL("/og-v2.png", base).toString(), width: 1536, height: 1024, alt: "Paras Kaushik - AI Systems Engineer" }],
+      images: [{ url: new URL("/og.png", base).toString(), width: 1536, height: 1024, alt: "Paras Kaushik - AI Engineer & Product Founder" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Paras Kaushik - AI Systems Engineer",
-      description: "Unstructured data into decisions at production scale.",
-      images: [new URL("/og-v2.png", base).toString()],
+      title: "Paras Kaushik - AI Engineer & Product Founder",
+      description: "Models are useful. Systems create impact.",
+      images: [new URL("/og.png", base).toString()],
     },
   };
 }
