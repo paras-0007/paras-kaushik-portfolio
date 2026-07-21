@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
+import Image from "next/image";
 
 type WorkFilter = "all" | "products" | "models" | "automation";
 
@@ -250,7 +251,10 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about"><div className="shell about-grid">
-        <div className="portrait-placeholder" aria-label="Portrait placeholder for Paras Kaushik" data-reveal><span>PK</span><div><i>PORTRAIT</i><p>Your photo will complete this frame.</p></div></div>
+        <figure className="portrait" data-reveal>
+          <Image src="/paras-kaushik.jpg" alt="Portrait of Paras Kaushik" width={1219} height={1600} sizes="(max-width: 620px) 330px, 340px" priority={false} />
+          <figcaption><i>PARAS KAUSHIK</i><p>AI Engineer / Product Founder</p></figcaption>
+        </figure>
         <div className="about-copy" data-reveal>
           <span className="section-index">04 / BEHIND THE WORK</span>
           <h2>I care about AI that survives contact with <em>real users.</em></h2>
