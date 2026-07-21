@@ -251,8 +251,9 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about"><div className="shell about-grid">
-        <figure className="portrait" data-reveal>
-          <Image src="/paras-kaushik.jpg" alt="Portrait of Paras Kaushik" width={1219} height={1600} sizes="(max-width: 620px) 330px, 340px" priority={false} />
+        <figure className="portrait-sticker" data-reveal>
+          <span className="sticker-orbit" aria-hidden="true" />
+          <Image src="/paras-kaushik-sticker.png" alt="Portrait sticker of Paras Kaushik" width={1080} height={1456} sizes="(max-width: 620px) 340px, 390px" priority={false} />
           <figcaption><i>PARAS KAUSHIK</i><p>AI Engineer / Product Founder</p></figcaption>
         </figure>
         <div className="about-copy" data-reveal>
