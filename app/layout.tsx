@@ -15,17 +15,18 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Paras Kaushik - AI Engineer & Product Founder",
       description: "Models are useful. Systems create impact.",
       type: "website",
-      images: [{ url: new URL("/og.png", base).toString(), width: 1536, height: 1024, alt: "Paras Kaushik - AI Engineer & Product Founder" }],
+      images: [{ url: new URL("/og-portfolio.png", base).toString(), width: 1536, height: 1024, alt: "Paras Kaushik - AI Engineer & Product Founder" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Paras Kaushik - AI Engineer & Product Founder",
       description: "Models are useful. Systems create impact.",
-      images: [new URL("/og.png", base).toString()],
+      images: [new URL("/og-portfolio.png", base).toString()],
     },
   };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  const themeScript = `(function(){try{var saved=localStorage.getItem('portfolio-theme');var theme=saved||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=theme}catch(e){document.documentElement.dataset.theme='dark'}})()`;
+  return <html lang="en" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head><body>{children}</body></html>;
 }

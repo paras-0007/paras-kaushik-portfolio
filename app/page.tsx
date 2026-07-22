@@ -1,283 +1,146 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ContactForm } from "./components/contact-form";
+import { SiteFooter } from "./components/site-footer";
+import { SiteNav } from "./components/site-nav";
 
-type WorkFilter = "all" | "products" | "models" | "automation";
-
-const work = [
+const projects = [
   {
-    title: "Flashr",
-    eyebrow: "Founder / AI product",
-    category: "products",
-    summary:
-      "An AI-native retention platform for India's competitive exams. Flashr turns PDFs, screenshots, and handwritten notes into flashcards and MCQs, schedules revision with SM-2 spaced repetition, and makes practice social through a live Duel Arena.",
-    highlights: [
-      "Shipped end-to-end as a hosted product and Android app",
-      "Multimodal ingestion with OCR and Gemini",
-      "Subscriptions, realtime study loops, and product analytics",
-    ],
-    stack: ["React Native", "Expo", "Supabase", "Gemini", "OCR", "SM-2"],
-    metric: "LIVE",
-    metricLabel: "Web + Google Play",
+    title: "Flashr - AI-native exam prep",
+    badge: "Founder · QuietGradient",
+    copy: "An AI retention platform for India's competitive exams. Converts PDFs, screenshots, and handwritten notes into flashcards and MCQs, schedules revision with SM-2, and adds live learning through a Duel Arena.",
+    metric: "Shipped across web and Google Play",
+    tags: ["React Native", "Supabase", "Gemini", "OCR", "SM-2"],
     links: [
-      { label: "flashrapp.in", href: "https://flashrapp.in" },
-      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.den.flashr" },
-      { label: "quietgradient.com", href: "https://quietgradient.com" },
+      ["flashrapp.in", "https://flashrapp.in"],
+      ["Google Play", "https://play.google.com/store/apps/details?id=com.den.flashr"],
+      ["QuietGradient", "https://quietgradient.com"],
     ],
+    featured: true,
   },
   {
-    title: "GradeSmith",
-    eyebrow: "Document AI / model engineering",
-    category: "models",
-    summary:
-      "An institution-scale grading system built for handwritten answers, subjective rubrics, and the messy edge cases that break ordinary OCR pipelines.",
-    highlights: [
-      "Fine-tuned Qwen3.5 9B for handwritten answer extraction and mapping",
-      "Fine-tuned YOLO models to detect cuts and invalidated responses",
-      "Built multi-step evaluation, rubric scoring, and confidence controls",
-    ],
-    stack: ["Qwen3.5 9B", "YOLO", "VLM fine-tuning", "Agentic evaluation", "FastAPI", "GPU inference"],
-    metric: "3L+",
-    metricLabel: "Sheets evaluated for a major university",
-    note: "Reduced per-sheet inference cost by 80% while taking the system from model experiments to institutional delivery.",
+    title: "GradeSmith - institutional grading AI",
+    badge: "Infutrix",
+    copy: "A multimodal grading pipeline for handwritten university answer sheets: Qwen3.5 9B fine-tuning, YOLO-based strikethrough detection, rubric-aware reasoning, and confidence-controlled evaluation.",
+    metric: "3L+ sheets evaluated · 80% lower inference cost",
+    tags: ["Qwen3.5 9B", "YOLO", "VLM fine-tuning", "Agentic evaluation"],
   },
   {
-    title: "Hirefl.ai",
-    eyebrow: "AI automation / HR technology",
-    category: "automation",
-    summary:
-      "A hiring intelligence platform that replaces repetitive resume review and first-round coordination with a connected, evidence-led workflow for HR teams.",
-    highlights: [
-      "LLaMA-based resume parsing and candidate screening",
-      "Real-time voice interviews with STT, TTS, and adaptive questions",
-      "Automated scoring, summaries, and decision-ready candidate reports",
-    ],
-    stack: ["LLaMA", "Voice AI", "STT / TTS", "Evaluation", "FastAPI"],
-    metric: "70%",
-    metricLabel: "Less repetitive HR workload",
+    title: "Hirefl.ai - hiring intelligence",
+    badge: "AI automation",
+    copy: "An end-to-end hiring workflow for resume parsing, candidate screening, real-time voice interviews, automated scoring, and decision-ready reports for HR teams.",
+    metric: "70% less repetitive HR workload",
+    tags: ["LLaMA", "Voice AI", "STT / TTS", "FastAPI"],
   },
   {
-    title: "KAIROS AI",
-    eyebrow: "Multi-tool AI workspace",
-    category: "products",
-    summary:
-      "A modular AI workspace that brought voice control, document intelligence, and everyday automation into one place instead of forcing users across disconnected tools.",
-    highlights: [
-      "PRINCE voice model for controlling web and local-system actions",
-      "DoChat for conversational search across PDFs and documents",
-      "OCR, multilingual translation, QR workflows, and task agents",
-    ],
-    stack: ["Multi-agent systems", "RAG", "Voice control", "OCR", "Tool calling", "STT / TTS"],
-    metric: "7+",
-    metricLabel: "AI capabilities in one workspace",
-    note: "Designed as an extensible agent architecture, not a bundle of disconnected demos.",
+    title: "KAIROS AI - multi-tool workspace",
+    badge: "Independent build",
+    copy: "A modular AI workspace featuring PRINCE for voice control across web and local systems, DoChat for multi-document conversations, plus OCR, translation, QR workflows, and task agents.",
+    metric: "7+ coordinated AI capabilities",
+    tags: ["Multi-agent", "RAG", "Voice control", "Tool calling"],
   },
 ];
 
-const journey = [
-  {
-    period: "2026 - Present",
-    role: "Product Founder",
-    company: "Flashr",
-    copy: "Building and shipping an AI-native learning product across web and Android - from product decisions and AI workflows to subscriptions and production delivery.",
-  },
-  {
-    period: "Jun 2025 - Present",
-    role: "AI Engineer",
-    company: "Infutrix",
-    copy: "Owning production document intelligence, multimodal grading, model fine-tuning, inference economics, and AI-led recruitment systems.",
-  },
-  {
-    period: "Jul 2024 - Aug 2024",
-    role: "AI & Cloud Engineering",
-    company: "AICTE Edunet Foundation",
-    copy: "Built and deployed conversational AI with intent classification, entity recognition, and cloud-native delivery on IBM Cloud.",
-  },
-  {
-    period: "Jun 2024 - Jul 2024",
-    role: "Data Analytics & Product Insights",
-    company: "Dataplay",
-    copy: "Led analytics delivery, built decision-ready Power BI dashboards, and translated operating data into stakeholder action.",
-  },
+const experience = [
+  { role: "Product Founder", org: "Flashr", meta: "2026 - Present · India", bullets: ["Shipping an AI-native learning product across web and Android.", "Owning product, AI workflows, subscriptions, realtime systems, and delivery."] },
+  { role: "AI Engineer", org: "Infutrix", meta: "Jun 2025 - Present · Mohali, India", bullets: ["Built institution-scale document intelligence processing 3L+ answer sheets.", "Fine-tuned Qwen3.5 9B and specialist vision models while reducing inference cost by 80%.", "Built Hirefl.ai to automate screening and first-round interviews."] },
+  { role: "AI & Cloud Engineering", org: "AICTE Edunet Foundation", meta: "Jul 2024 - Aug 2024 · Remote", bullets: ["Built and deployed conversational AI with intent and entity intelligence on IBM Cloud."] },
+  { role: "Data Analytics & Product Insights", org: "Dataplay", meta: "Jun 2024 - Jul 2024 · Remote", bullets: ["Led analytics delivery and turned operating data into decision-ready Power BI dashboards."] },
 ];
 
-const capabilities = [
-  {
-    number: "01",
-    title: "Model adaptation",
-    copy: "Fine-tuning VLMs and LLMs with SFT, RFT, and GRPO; dataset design, augmentation, error analysis, and evaluation that reflects real use.",
-    tools: "PyTorch / Hugging Face / Qwen / vLLM",
-  },
-  {
-    number: "02",
-    title: "Document intelligence",
-    copy: "Handwriting OCR, layout parsing, visual detection, semantic mapping, rubric reasoning, and confidence-gated review pipelines.",
-    tools: "VLMs / YOLO / OpenCV / OCR / RAG",
-  },
-  {
-    number: "03",
-    title: "Agents & voice systems",
-    copy: "Multi-agent orchestration, tool calling, retrieval, realtime voice, and assistants that can act across browsers, documents, and local systems.",
-    tools: "LangChain / LlamaIndex / Pipecat / STT / TTS",
-  },
-  {
-    number: "04",
-    title: "Production AI",
-    copy: "From the first evaluation set to a monitored, cost-aware service: model routing, GPU deployment, APIs, containers, CI/CD, and cloud infrastructure.",
-    tools: "FastAPI / Docker / AWS / GCP / RunPod",
-  },
-  {
-    number: "05",
-    title: "AI product engineering",
-    copy: "Turning a model into a usable product with the right feedback loops, subscriptions, realtime data, mobile delivery, and measurable user outcomes.",
-    tools: "React Native / Supabase / Cloudflare / Analytics",
-  },
-  {
-    number: "06",
-    title: "Evaluation & economics",
-    copy: "Accuracy is only one constraint. I design around cost per task, latency, failure modes, human review, and the business decision downstream.",
-    tools: "CER / task metrics / observability / cost control",
-  },
-];
+const capabilityMatches = {
+  documents: { label: "Document AI", title: "From noisy pages to defensible decisions", copy: "Handwriting OCR, layout understanding, fine-tuned VLMs, specialist CV gates, rubric reasoning, and confidence-led review.", proof: "GradeSmith · 3L+ sheets · 80% cost reduction" },
+  agents: { label: "Agents & Voice", title: "AI that can retrieve, reason, speak, and act", copy: "RAG, multi-agent orchestration, tool calling, realtime STT/TTS, browser and local-system control, and evaluation loops.", proof: "KAIROS · PRINCE · DoChat · Hirefl.ai" },
+  product: { label: "AI Product", title: "A model is only the beginning", copy: "I connect AI quality to mobile UX, subscriptions, realtime data, analytics, infrastructure, and the product loops that create retention.", proof: "Flashr · Web + Android · founder ownership" },
+};
 
-const filters: { label: string; value: WorkFilter }[] = [
-  { label: "All work", value: "all" },
-  { label: "AI products", value: "products" },
-  { label: "Models & vision", value: "models" },
-  { label: "Automation", value: "automation" },
-];
+type MatchKey = keyof typeof capabilityMatches;
 
 export default function Home() {
-  const [filter, setFilter] = useState<WorkFilter>("all");
+  const [match, setMatch] = useState<MatchKey>("documents");
 
   useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("visible")),
-      { threshold: 0.1 },
-    );
-    elements.forEach((element) => observer.observe(element));
+    const nodes = document.querySelectorAll<HTMLElement>(".reveal");
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("visible")), { threshold: 0.08 });
+    nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);
 
-  const visibleWork = filter === "all" ? work : work.filter((item) => item.category === filter);
+  const activeMatch = capabilityMatches[match];
 
   return (
-    <main id="top">
-      <nav className="site-nav shell" aria-label="Primary navigation">
-        <a className="wordmark" href="#top"><span>PK</span> Paras Kaushik</a>
-        <div className="nav-tabs">
-          <a href="#work">Work</a>
-          <a href="#journey">Journey</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-        </div>
-        <a className="nav-contact" href="mailto:paraskaushik862@gmail.com">Let&apos;s talk <span>↗</span></a>
-      </nav>
+    <main>
+      <SiteNav />
 
-      <header className="hero shell">
-        <div className="hero-copy" data-reveal>
-          <div className="availability"><i /> AI Engineer &amp; Co-founder at <a href="https://quietgradient.com" target="_blank" rel="noreferrer">QuietGradient ↗</a></div>
-          <p className="hero-kicker">I BUILD AI PRODUCTS THAT LEAVE THE DEMO.</p>
-          <h1>Models are useful.<br /><em>Systems create impact.</em></h1>
-          <p className="hero-intro">I turn ambitious AI ideas into working products - fine-tuning models, designing evaluation loops, shipping full-stack experiences, and making the economics work in production.</p>
-          <div className="hero-actions">
-            <a className="button primary" href="#work">See what I&apos;ve built <span>↓</span></a>
-            <a className="button secondary" href="/Paras-Kaushik-Resume.pdf" target="_blank">Resume <span>↗</span></a>
+      <header className="hero-home">
+        <div className="container hero-grid">
+          <div className="hero-copy reveal">
+            <div className="status-pill"><span /> Open to roles, consulting &amp; collaborations</div>
+            <p className="kicker">AI Engineer · Product Founder · Builder</p>
+            <h1>I build AI systems that <em>actually ship</em> to production.</h1>
+            <p className="hero-sub">From fine-tuning Qwen3.5 9B for handwritten grading to shipping an AI study product on Google Play, I work across models, infrastructure, and product - wherever the hard part is.</p>
+            <div className="hero-actions"><Link className="btn primary" href="/hire">Hire me</Link><Link className="btn secondary" href="/consulting">Consult with me</Link><a className="btn ghost" href="#work">See the work ↓</a></div>
+          </div>
+          <div className="hero-person reveal">
+            <div className="person-disc" />
+            <Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik" width={1080} height={1456} priority sizes="(max-width: 760px) 360px, 430px" />
+            <div className="person-card"><span>CURRENTLY</span><strong>Building applied AI systems + Flashr</strong></div>
           </div>
         </div>
-        <aside className="hero-proof" data-reveal>
-          <div className="proof-label"><span>Current signal</span><i>2026</i></div>
-          <strong>3L+</strong>
-          <p>handwritten answer sheets evaluated for a major university</p>
-          <div className="proof-divider" />
-          <dl>
-            <div><dt>80%</dt><dd>lower grading cost</dd></div>
-            <div><dt>70%</dt><dd>less manual HR work</dd></div>
-            <div><dt>7+</dt><dd>AI tools unified</dd></div>
-          </dl>
-        </aside>
+        <div className="container stats-strip reveal">
+          <div><strong>3L+</strong><span>answer sheets evaluated</span></div>
+          <div><strong>80%</strong><span>grading cost reduced</span></div>
+          <div><strong>70%</strong><span>manual HR work reduced</span></div>
+          <div><strong>7+</strong><span>AI capabilities unified</span></div>
+        </div>
       </header>
 
-      <div className="signal-strip" aria-label="Core disciplines">
-        <div>{["VLM FINE-TUNING", "DOCUMENT AI", "VOICE AGENTS", "RAG", "COMPUTER VISION", "AI PRODUCTS", "GPU INFERENCE", "EVALUATION SYSTEMS"].map((item) => <span key={item}>{item}<i>•</i></span>)}</div>
-      </div>
-
-      <section className="work-section shell" id="work">
-        <div className="section-heading" data-reveal>
-          <div><span className="section-index">01 / SELECTED WORK</span><h2>Built from model<br />to <em>market.</em></h2></div>
-          <p>Products and systems where I owned more than the model: the data, evaluation, architecture, user experience, deployment, and measurable outcome.</p>
-        </div>
-        <div className="work-tabs" role="tablist" aria-label="Filter selected work" data-reveal>
-          {filters.map((item) => <button key={item.value} role="tab" aria-selected={filter === item.value} className={filter === item.value ? "active" : ""} onClick={() => setFilter(item.value)}>{item.label}</button>)}
-        </div>
-        <div className="work-grid">
-          {visibleWork.map((item, index) => (
-            <article className="case-card" key={item.title} data-reveal style={{ "--delay": `${index * 70}ms` } as CSSProperties}>
-              <div className="case-head"><span>{item.eyebrow}</span><b>{String(index + 1).padStart(2, "0")}</b></div>
-              <div className="case-title"><div><h3>{item.title}</h3><p>{item.summary}</p></div><div className="case-metric"><strong>{item.metric}</strong><span>{item.metricLabel}</span></div></div>
-              <ul>{item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
-              {item.note && <p className="case-note">{item.note}</p>}
-              <div className="case-footer"><div className="tech-list">{item.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>{item.links && <div className="case-links">{item.links.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div>}</div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="skills-section" id="skills"><div className="shell">
-        <div className="section-heading compact" data-reveal>
-          <div><span className="section-index">02 / ENGINEERING RANGE</span><h2>The skillset behind<br />the <em>shipping.</em></h2></div>
-          <p>I work across the full AI product stack. The goal is not to use every technique - it is to choose the smallest reliable system that wins on quality, latency, and cost.</p>
-        </div>
-        <div className="capability-grid">
-          {capabilities.map((item) => <article key={item.number} data-reveal><span>{item.number}</span><h3>{item.title}</h3><p>{item.copy}</p><strong>{item.tools}</strong></article>)}
+      <section className="section paths-section"><div className="container">
+        <div className="section-head reveal"><span className="section-index">01 / WORK WITH ME</span><h2>Two clear ways to start.</h2></div>
+        <div className="paths-grid">
+          <Link className="path-card reveal" href="/hire"><span className="path-icon">01</span><h3>Hire Me</h3><p>For teams looking for an applied AI engineer who owns data, model quality, deployment, and product outcomes.</p><b>See what I bring →</b></Link>
+          <Link className="path-card reveal" href="/consulting"><span className="path-icon">02</span><h3>Consulting</h3><p>For founders and teams who need to validate, architect, or ship an AI feature without wasting cycles.</p><b>View services →</b></Link>
         </div>
       </div></section>
 
-      <section className="journey-section shell" id="journey">
-        <div className="section-heading compact" data-reveal>
-          <div><span className="section-index">03 / JOURNEY</span><h2>Learning fast.<br /><em>Owning more.</em></h2></div>
-          <p>A progression from analytics and cloud AI to production model engineering and founder-level product ownership.</p>
-        </div>
-        <div className="journey-ladder">
-          {journey.map((item, index) => <article key={`${item.company}-${item.period}`} data-reveal>
-            <div className="journey-marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
-            <div className="journey-period">{item.period}</div>
-            <div className="journey-role"><h3>{item.role}</h3><strong>{item.company}</strong></div>
-            <p>{item.copy}</p>
-          </article>)}
-        </div>
-      </section>
-
-      <section className="about-section" id="about"><div className="shell about-grid">
-        <figure className="portrait-sticker" data-reveal>
-          <span className="sticker-orbit" aria-hidden="true" />
-          <Image src="/paras-kaushik-sticker.png" alt="Portrait sticker of Paras Kaushik" width={1080} height={1456} sizes="(max-width: 620px) 340px, 390px" priority={false} />
-          <figcaption><i>PARAS KAUSHIK</i><p>AI Engineer / Product Founder</p></figcaption>
-        </figure>
-        <div className="about-copy" data-reveal>
-          <span className="section-index">04 / BEHIND THE WORK</span>
-          <h2>I care about AI that survives contact with <em>real users.</em></h2>
-          <p>I studied Computer Science Engineering at MAIT, Baddi, and moved quickly from analytics into computer vision, language models, and product engineering. Since then, I have built AI across education, hiring, productivity, and document intelligence.</p>
-          <p>My best work sits between research and product: understanding why a model fails, improving it with the right data and training strategy, then building the infrastructure and experience that lets people trust it.</p>
-          <div className="about-facts"><div><span>EDUCATION</span><strong>B.Tech CSE, 2021-2025</strong></div><div><span>CGPA</span><strong>9.23</strong></div><div><span>LOCATION</span><strong>India / UTC+5:30</strong></div><div><span>FOCUS</span><strong>Applied AI + Products</strong></div></div>
+      <section className="section match-section"><div className="container">
+        <div className="section-head reveal"><span className="section-index">02 / PROBLEM-TO-PROOF</span><h2>Choose the problem. See my closest proof.</h2><p>A fast way to understand where I create leverage.</p></div>
+        <div className="match-console reveal">
+          <div className="match-tabs" role="tablist" aria-label="Choose an AI problem">{(Object.keys(capabilityMatches) as MatchKey[]).map((key) => <button key={key} role="tab" aria-selected={match === key} className={match === key ? "active" : ""} onClick={() => setMatch(key)}>{capabilityMatches[key].label}</button>)}</div>
+          <div className="match-output" key={match}><div><span>BEST MATCH / {activeMatch.label}</span><h3>{activeMatch.title}</h3><p>{activeMatch.copy}</p></div><aside><span>SHIPPED PROOF</span><strong>{activeMatch.proof}</strong><Link href={match === "product" ? "/consulting" : "/hire"}>Discuss this problem ↗</Link></aside></div>
         </div>
       </div></section>
 
-      <section className="recognition shell" data-reveal>
-        <span className="section-index">05 / SIGNALS</span>
-        <div><strong>AI Summit 2026</strong><p>Presented GradeSmith to 500+ industry professionals and academic leaders.</p></div>
-        <div><strong>Ideathon - 1st place</strong><p>Designed a tongue-driven wheelchair system recognized for innovation and technical execution.</p></div>
-      </section>
-
-      <section className="contact-section" id="contact"><div className="shell" data-reveal>
-        <span className="section-index">06 / OPEN TO HARD PROBLEMS</span>
-        <h2>Need someone who can take AI from <em>maybe</em> to <em>working?</em></h2>
-        <div className="contact-bottom"><p>Applied AI roles, ambitious products, and systems that need real engineering behind the model.</p><div><a href="mailto:paraskaushik862@gmail.com">paraskaushik862@gmail.com ↗</a><a href="https://www.linkedin.com/in/paraskaushik07" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div>
+      <section className="section" id="work"><div className="container">
+        <div className="section-head reveal"><span className="section-index">03 / SELECTED WORK</span><h2>Things I&apos;ve built.</h2><p>Production systems with real users and measurable outcomes - not isolated demos.</p></div>
+        <div className="work-grid">{projects.map((project) => <article className={`work-card reveal ${project.featured ? "featured" : ""}`} key={project.title}><div className="work-top"><h3>{project.title}</h3><span className="badge">{project.badge}</span></div><p>{project.copy}</p><strong className="work-metric">{project.metric}</strong><div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.links && <div className="work-links">{project.links.map(([label, href]) => <a key={href} href={href} target="_blank" rel="noreferrer">{label} ↗</a>)}</div>}</article>)}</div>
       </div></section>
 
-      <footer className="shell"><span>Paras Kaushik / AI Engineer</span><span>© 2026</span><a href="#top">Back to top ↑</a></footer>
+      <section className="section experience-section" id="experience"><div className="container">
+        <div className="section-head reveal"><span className="section-index">04 / EXPERIENCE</span><h2>Where I&apos;ve built and learned.</h2></div>
+        <div className="timeline">{experience.map((item) => <article className="timeline-item reveal" key={`${item.org}-${item.meta}`}><div className="timeline-dot" /><div className="timeline-head"><h3>{item.role}</h3><strong>{item.org}</strong><span>{item.meta}</span></div><ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></article>)}</div>
+      </div></section>
+
+      <section className="section toolkit-section"><div className="container">
+        <div className="section-head reveal"><span className="section-index">05 / TOOLKIT</span><h2>Skills across the whole system.</h2></div>
+        <div className="skills-grid">
+          <div className="skill-group reveal"><h3>Models &amp; learning</h3><div className="tags">{["LLMs & VLMs", "SFT / RFT / GRPO", "PyTorch", "Hugging Face", "vLLM", "Evaluation"].map(x => <span key={x}>{x}</span>)}</div></div>
+          <div className="skill-group reveal"><h3>Vision &amp; documents</h3><div className="tags">{["Computer Vision", "OCR", "Layout Parsing", "YOLO", "OpenCV", "Handwriting AI"].map(x => <span key={x}>{x}</span>)}</div></div>
+          <div className="skill-group reveal"><h3>Agents &amp; voice</h3><div className="tags">{["RAG", "Tool Calling", "LangChain", "LlamaIndex", "STT / TTS", "Pipecat"].map(x => <span key={x}>{x}</span>)}</div></div>
+          <div className="skill-group reveal"><h3>Product &amp; deployment</h3><div className="tags">{["FastAPI", "Docker", "AWS / GCP", "RunPod", "React Native", "Supabase", "Cloudflare"].map(x => <span key={x}>{x}</span>)}</div></div>
+        </div>
+      </div></section>
+
+      <section className="section about-section" id="about"><div className="container about-grid">
+        <div className="about-photo reveal"><div className="photo-disc" /><Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik portrait" width={1080} height={1456} sizes="(max-width: 700px) 340px, 390px" /></div>
+        <div className="about-text reveal"><span className="section-index">06 / ABOUT</span><h2>Research depth.<br />Founder urgency.</h2><p>I studied Computer Science Engineering at MAIT, Baddi, then moved quickly from analytics into computer vision, language models, and production AI. My work now spans education, hiring, productivity, and document intelligence.</p><p>I care about systems that survive contact with real users. A fine-tuned model matters only when it is measurable, deployable, monitored, and economical enough to keep running.</p><div className="about-facts"><div><span>Education</span>B.Tech CSE, 2021-2025</div><div><span>CGPA</span>9.23</div><div><span>Location</span>India · UTC+5:30</div><div><span>Focus</span>Applied AI + products</div></div></div>
+      </div></section>
+
+      <section className="cta-band" id="contact"><div className="container"><div className="cta-copy reveal"><span className="section-index">07 / GET IN TOUCH</span><h2>Let&apos;s build something that works.</h2><p>Tell me about the role, product, or stubborn AI problem on your desk.</p></div><ContactForm /></div></section>
+      <SiteFooter />
     </main>
   );
 }
