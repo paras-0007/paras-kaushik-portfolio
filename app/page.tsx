@@ -61,7 +61,7 @@ export default function Home() {
           <div className="hero-person reveal">
             <div className="person-disc" />
             <div className="portrait-glass glass" />
-            <Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik" width={1080} height={1456} priority sizes="(max-width: 760px) 360px, 430px" />
+            <Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik" width={1080} height={1456} priority unoptimized />
             <div className="person-card glass"><span>CURRENTLY</span><strong>Building applied AI systems + Flashr</strong></div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function Home() {
       </div></section>
 
       <section className="section about-section" id="about"><div className="container about-grid">
-        <div className="about-photo reveal"><div className="photo-disc" /><Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik portrait" width={1080} height={1456} sizes="(max-width: 700px) 340px, 390px" /></div>
+        <div className="about-photo reveal"><div className="photo-disc" /><Image src="/paras-kaushik-sticker.png" alt="Paras Kaushik portrait" width={1080} height={1456} unoptimized /></div>
         <div className="about-text reveal"><span className="section-index">07 / ABOUT</span><h2>Research depth.<br />Founder urgency.</h2><p>I studied Computer Science Engineering at {education.school}, then moved quickly from analytics into computer vision, language models, and production AI. My work now spans education, hiring, productivity, and document intelligence.</p><p>I care about systems that survive contact with real users. A fine-tuned model matters only when it is measurable, deployable, monitored, and economical enough to keep running.</p><div className="about-facts"><div><span>Education</span>{education.degree.replace("in Computer Science Engineering", "CSE")}, {education.dates}</div><div><span>CGPA</span>{education.cgpa}</div><div><span>Location</span>{profile.location}</div><div><span>Focus</span>Applied AI + products</div></div></div>
       </div></section>
 
