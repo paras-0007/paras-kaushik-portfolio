@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paras Kaushik — AI Engineer</title>
+<meta name="description" content="Paras Kaushik — AI Engineer. Computer Vision, LLM/VLM fine-tuning, RAG & agentic AI systems shipped to production at national scale.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%235b83f7' d='M13 2 3 14h7l-1 8 10-12h-7l1-8z'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></symbol>
+  <symbol id="i-nodes" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 10v5"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4v1a4 4 0 0 0 4 4"/><path d="M17 6h3v1a4 4 0 0 1-4 4"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2a1 1 0 0 0 1-1v-3c0-.9-.7-1.7-1.5-1.9L16 10l-2.2-2.3a2.5 2.5 0 0 0-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4a1 1 0 0 0 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M9 17h6"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3"/><path d="M14 2v4M8 10v4M16 18v4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+</svg>
+
+<!-- Background FX -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="grid-overlay" aria-hidden="true"></div>
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a class="brand" href="#hero"><span class="brand-dot"></span>paras.kaushik</a>
+  <button id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#toolkit">Stack</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="hire.html">Hire me</a></li>
+    <li><a href="consulting.html">Consulting</a></li>
+    <li><a href="Paras_kaushik_ai.pdf" download>Resume</a></li>
+    <li><button class="theme-btn" id="theme-btn" aria-label="Toggle light/dark theme"><svg class="svg-icon i-sun"><use href="#i-sun"/></svg><svg class="svg-icon i-moon"><use href="#i-moon"/></svg></button></li>
+    <li><button class="nav-ai" id="ai-open"><svg class="svg-icon"><use href="#i-sparkle"/></svg> Ask the resume <kbd>⌘K</kbd></button></li>
+    <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+  </ul>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-grid">
+    <div class="hero-left">
+    <div class="hero-eyebrow hero-in d1"><span class="status-dot"></span>AVAILABLE FOR OPPORTUNITIES & COLLABORATIONS</div>
+    <h1 class="hero-title hero-in d2">Paras <span class="grad-text">Kaushik</span></h1>
+    <p class="hero-tagline hero-in d3">AI Engineer with 2+ years deploying end-to-end AI — architect of GradeSmith, co-founder of <a href="https://quietgradient.com" target="_blank" rel="noopener" class="tagline-link">QuietGradient</a>. I turn messy real-world data into production systems: OCR at national scale, fine-tuned VLMs, and agentic RAG.</p>
+    <div class="hero-type-row hero-in d4">
+      <span class="prompt">~$</span><span id="typewriter"></span><span class="caret"></span>
+    </div>
+    <div class="hero-ctas hero-in d5">
+      <a class="btn btn-primary" href="#work">View my work <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#contact">Get in touch <span class="arrow">→</span></a>
+      <button class="btn btn-ghost" id="ai-open-hero"><svg class="svg-icon"><use href="#i-sparkle"/></svg> Query my resume <kbd class="kbd-inline">⌘K</kbd></button>
+    </div>
+    <a class="now-building hero-in d6" href="https://flashrapp.in" target="_blank" rel="noopener">
+      <span class="nb-badge">NOW BUILDING</span>
+      <span class="nb-text"><strong>Flashr</strong> by QuietGradient — AI-native exam prep, now in closed testing on Google Play</span>
+      <span class="nb-arrow">↗</span>
+    </a>
+    </div>
+    <div class="hero-right">
+      <div class="portrait-frame" id="portrait">
+        <div class="pf-glow" aria-hidden="true"></div>
+        <img class="pf-img" src="paras-formal-near-black-blazer-burgundy-tie.png" alt="Paras Kaushik — AI Engineer" width="1080" height="1457">
+      </div>
+    </div>
+    </div>
+    <div class="hero-stats hero-in d7">
+      <div class="glass stat-card"><div class="stat-val"><span class="count" data-target="300" data-suffix="K+">0</span></div><div class="stat-key">Answer sheets graded</div></div>
+      <div class="glass stat-card"><div class="stat-val"><span class="count" data-target="97.5" data-decimals="1" data-suffix="%">0</span></div><div class="stat-key">OCR accuracy</div></div>
+      <div class="glass stat-card"><div class="stat-val"><span class="count" data-target="80" data-suffix="%">0</span></div><div class="stat-key">Grading cost cut</div></div>
+      <div class="glass stat-card"><div class="stat-val"><span class="count" data-target="8" data-suffix="%">0</span></div><div class="stat-key">CER — down from 20%</div></div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT I DO ============ -->
+  <section id="what">
+    <div class="sec-label reveal"><span class="num">01</span> EXPERTISE</div>
+    <h2 class="sec-title reveal">Hard inputs.<br><span class="grad-text">Reliable outputs.</span></h2>
+    <p class="sec-sub reveal">Illegible handwriting, models too expensive to run, workflows too tangled to automate — that's the kind of problem I pick.</p>
+    <div class="do-grid">
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-eye"/></svg></div>
+        <h3>Computer Vision &amp; OCR</h3>
+        <p>Handwritten OCR at national scale. Layout parsing, strikethrough detection, and document intelligence for the messiest real-world inputs.</p>
+        <div class="tag-row"><span class="tag">Qwen-VL</span><span class="tag">YOLO</span><span class="tag">OpenCV</span><span class="tag">Layout Parsing</span></div>
+      </div>
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-cpu"/></svg></div>
+        <h3>LLM / VLM Fine-tuning</h3>
+        <p>SFT, RFT, and GRPO on multimodal models. Custom dataset pipelines, augmentation, and GPU-efficient deployment that cuts inference cost.</p>
+        <div class="tag-row"><span class="tag">SFT</span><span class="tag">RFT</span><span class="tag">GRPO</span><span class="tag">vLLM</span><span class="tag">Hugging Face</span></div>
+      </div>
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-nodes"/></svg></div>
+        <h3>RAG &amp; Agentic AI</h3>
+        <p>Multi-step agentic reasoning pipelines, retrieval systems, and real-time voice AI — orchestrated into products people rely on daily.</p>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">LlamaIndex</span><span class="tag">FAISS</span><span class="tag">STT/TTS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section id="work">
+    <div class="sec-label reveal"><span class="num">02</span> SHIPPED WORK</div>
+    <h2 class="sec-title reveal">Deployed, measured, <span class="grad-text">still running.</span></h2>
+    <p class="sec-sub reveal">No mockups here — every project below is in the wild, with real usage numbers attached. The arrow opens details.</p>
+    <div class="work-grid">
+
+      <article class="glass project featured reveal tilt">
+        <div class="glare"></div>
+        <div class="project-top">
+          <div>
+            <h3>GradeSmith — AI Automated Grading System</h3>
+            <div class="role">AI ENGINEER · INFUTRIX · DEPLOYED AT UNIVERSITIES INCLUDING CCSU</div>
+          </div>
+          <button class="project-link ask-proj" data-q="What is GradeSmith?" aria-label="More about GradeSmith">→</button>
+        </div>
+        <p>End-to-end OCR-based grading pipeline for handwritten answer sheets. Fine-tuned Qwen-VL with struck-through/cancelled-text exclusion, YOLO for cutting detection, and CV–LLM pipelines with rubric-aware partial-credit grading and explainable AI feedback.</p>
+        <div class="metric-row">
+          <div class="metric"><b class="hl">300K+</b><span>Sheets processed</span></div>
+          <div class="metric"><b>20→8</b><span>CER %</span></div>
+          <div class="metric"><b class="hl">97.5%</b><span>OCR accuracy</span></div>
+          <div class="metric"><b>−80%</b><span>Cost · ₹2→₹0.4/page</span></div>
+          <div class="metric"><b>60</b><span>Sheets/minute</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">Qwen-VL</span><span class="tag">YOLO</span><span class="tag">vLLM</span><span class="tag">Agentic AI</span><span class="tag">FastAPI</span></div>
+      </article>
+
+      <article class="glass project reveal tilt">
+        <div class="glare"></div>
+        <div class="project-top">
+          <div>
+            <h3>Flashr — AI-Native Study Platform</h3>
+            <div class="role">CO-FOUNDER · QUIETGRADIENT · FLASHRAPP.IN</div>
+          </div>
+          <a class="project-link" href="https://flashrapp.in" target="_blank" rel="noopener" aria-label="Visit Flashr">→</a>
+        </div>
+        <p>AI-native retention platform for India's competitive exams (UPSC, JEE, NEET, GATE, CAT, SSC): OCR-driven flashcard &amp; MCQ generation on Gemini Flash, an SM-2 spaced-repetition scheduler, and a live multiplayer Duel Arena — shipped end-to-end with freemium subscriptions.</p>
+        <div class="metric-row">
+          <div class="metric"><b class="hl">6</b><span>Exam tracks</span></div>
+          <div class="metric"><b>Beta</b><span>Google Play</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">Gemini Flash</span><span class="tag">SM-2</span><span class="tag">React Native (Expo)</span><span class="tag">Supabase</span></div>
+      </article>
+
+      <article class="glass project reveal tilt">
+        <div class="glare"></div>
+        <div class="project-top">
+          <div>
+            <h3>Hirefl.ai — AI Recruitment Platform</h3>
+            <div class="role">AI ENGINEER · INFUTRIX</div>
+          </div>
+          <button class="project-link ask-proj" data-q="Tell me about Hirefl.ai" aria-label="More about Hirefl.ai">→</button>
+        </div>
+        <p>LLaMA-based resume parsing &amp; screening with a real-time STT/TTS voice interview engine, automated candidate scoring, and FastAPI deployment.</p>
+        <div class="metric-row">
+          <div class="metric"><b class="hl">−70%</b><span>HR workload</span></div>
+          <div class="metric"><b>Real-time</b><span>Voice interviews</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">LLaMA</span><span class="tag">STT/TTS</span><span class="tag">FastAPI</span><span class="tag">Automated Scoring</span></div>
+      </article>
+
+      <article class="glass project reveal tilt">
+        <div class="glare"></div>
+        <div class="project-top">
+          <div>
+            <h3>KAIROS — Multi-Agent AI Platform</h3>
+            <div class="role">PERSONAL PROJECT · 2024</div>
+          </div>
+          <button class="project-link ask-proj" data-q="What is KAIROS?" aria-label="More about KAIROS">→</button>
+        </div>
+        <p>Modular multi-agent platform: fine-tuned conversational engine for multi-document Q&amp;A, PRINCE real-time voice assistant, OCR document intelligence, multilingual translation, and automated QR workflows.</p>
+        <div class="metric-row">
+          <div class="metric"><b class="hl">7+</b><span>AI capabilities</span></div>
+          <div class="metric"><b>+40%</b><span>Workflow speed</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">Multi-Agent</span><span class="tag">RAG</span><span class="tag">Voice AI</span><span class="tag">OCR</span></div>
+      </article>
+
+      <article class="glass project reveal tilt">
+        <div class="glare"></div>
+        <div class="project-top">
+          <div>
+            <h3>ScriptSeg — Handwritten OCR Detection Suite</h3>
+            <div class="role">PERSONAL PROJECT · 2025</div>
+          </div>
+          <button class="project-link ask-proj" data-q="What is ScriptSeg?" aria-label="More about ScriptSeg">→</button>
+        </div>
+        <p>Multi-stage detection suite for handwritten documents: specialized models for character-level localization, word/space segmentation, line-level OCR, and cutting/strikethrough detection.</p>
+        <div class="metric-row">
+          <div class="metric"><b class="hl">92%</b><span>Cutting detection</span></div>
+          <div class="metric"><b>4</b><span>Detection stages</span></div>
+        </div>
+        <div class="tag-row"><span class="tag">Character Localization</span><span class="tag">Word Segmentation</span><span class="tag">Line-level OCR</span><span class="tag">PyTorch</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="sec-label reveal"><span class="num">03</span> EXPERIENCE</div>
+    <h2 class="sec-title reveal">The road <span class="grad-text">so far.</span></h2>
+    <p class="sec-sub reveal">Accuracy up, costs down — the pattern I try to repeat at every stop.</p>
+    <div class="timeline">
+
+      <div class="t-item reveal">
+        <div class="glass t-card">
+          <div class="t-head"><h3>Co-founder <span class="at">@ QuietGradient</span></h3><span class="t-date">FEB 2026 — PRESENT</span></div>
+          <div class="t-loc">quietgradient.com · India</div>
+          <ul>
+            <li>Building <strong><a href="https://flashrapp.in" target="_blank" rel="noopener">Flashr</a></strong> at <strong><a href="https://quietgradient.com" target="_blank" rel="noopener">QuietGradient</a></strong> — an AI-native retention platform for India's competitive exams (UPSC, JEE, NEET, GATE, CAT, SSC), currently in <strong>closed testing on Google Play</strong>.</li>
+            <li>Shipped <strong>OCR-driven flashcard &amp; MCQ generation</strong> (Gemini Flash), an <strong>SM-2 spaced-repetition scheduler</strong>, and a live <strong>Duel Arena</strong> — end-to-end on React Native (Expo) + Supabase with freemium in-app subscriptions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="glass t-card">
+          <div class="t-head"><h3>AI Engineer <span class="at">@ Infutrix</span></h3><span class="t-date">JUN 2025 — PRESENT</span></div>
+          <div class="t-loc">Mohali, India</div>
+          <ul>
+            <li>Architected <strong>GradeSmith</strong> — OCR grading pipeline processing <strong>300,000+ answer sheets across 20+ subjects</strong>, deployed at universities including <strong>CCSU</strong> with on-ground deployment operations.</li>
+            <li>Fine-tuned <strong>Qwen-VL</strong> for handwritten OCR with struck-through/cancelled-text exclusion — <strong>CER down from 20% to 8%</strong> on noisy answer sheets, <strong>97.5% accuracy</strong> at <strong>60 sheets/minute</strong>.</li>
+            <li>Built <strong>CV–LLM grading pipelines</strong> with rubric-aware partial-credit scoring and explainable AI feedback — cutting grading costs <strong>80% (₹2 → ₹0.4/page)</strong>.</li>
+            <li>Built <strong>Hirefl.ai</strong> — AI recruitment platform with LLaMA resume screening and real-time voice interviews, cutting HR workload by <strong>70%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="glass t-card">
+          <div class="t-head"><h3>AI &amp; Cloud Computing <span class="at">@ AICTE Edunet Foundation</span></h3><span class="t-date">JUL 2024 — AUG 2024</span></div>
+          <div class="t-loc">Remote, India</div>
+          <ul>
+            <li>Built a <strong>production-deployed conversational AI chatbot</strong> using IBM Watson Assistant — intent classification, entity recognition, scalable IBM Cloud architecture.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item reveal">
+        <div class="glass t-card">
+          <div class="t-head"><h3>Data Analyst <span class="at">@ Dataplay</span></h3><span class="t-date">JUN 2024 — JUL 2024</span></div>
+          <div class="t-loc">Remote, India</div>
+          <ul>
+            <li>Developed interactive <strong>Power BI dashboards</strong> delivering actionable insights; led a cross-functional project team driving data-informed decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TOOLKIT ============ -->
+  <section id="toolkit">
+    <div class="sec-label reveal"><span class="num">04</span> STACK</div>
+    <h2 class="sec-title reveal">What's under <span class="grad-text">the hood.</span></h2>
+    <p class="sec-sub reveal">Chosen for what holds up under production load — and refreshed as fast as the field moves.</p>
+
+    <div class="reveal">
+      <div class="marquee-wrap">
+        <div class="marquee" id="mq1">
+          <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">LangChain</span><span class="chip">LlamaIndex</span><span class="chip">vLLM</span><span class="chip">Hugging Face</span><span class="chip">OpenCV</span><span class="chip">YOLO</span><span class="chip">FAISS</span><span class="chip">Pipecat</span><span class="chip">Sentence Transformers</span>
+        </div>
+      </div>
+      <div class="marquee-wrap">
+        <div class="marquee rev" id="mq2">
+          <span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">GCP</span><span class="chip">RunPod</span><span class="chip">Vast.ai</span><span class="chip">CI/CD</span><span class="chip">Cloudflare</span><span class="chip">Streamlit</span><span class="chip">OpenAI API</span><span class="chip">Gemini</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="toolkit-groups">
+      <div class="glass tk-card reveal">
+        <h4>AI / ML</h4>
+        <div class="tag-row"><span class="tag">Computer Vision</span><span class="tag">OCR</span><span class="tag">Layout Parsing</span><span class="tag">LLMs</span><span class="tag">VLMs</span><span class="tag">RAG</span><span class="tag">Agentic AI</span><span class="tag">SFT / RFT / GRPO</span><span class="tag">NLP</span></div>
+      </div>
+      <div class="glass tk-card reveal">
+        <h4>Libraries</h4>
+        <div class="tag-row"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">LangChain</span><span class="tag">LlamaIndex</span><span class="tag">FAISS</span><span class="tag">OpenCV</span><span class="tag">Hugging Face</span><span class="tag">YOLO</span><span class="tag">vLLM</span><span class="tag">Sentence Transformers</span><span class="tag">Pipecat</span></div>
+      </div>
+      <div class="glass tk-card reveal">
+        <h4>Deployment</h4>
+        <div class="tag-row"><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">RunPod (GPU)</span><span class="tag">Vast.ai</span><span class="tag">Streamlit</span><span class="tag">CI/CD</span><span class="tag">Cloudflare</span></div>
+      </div>
+      <div class="glass tk-card reveal">
+        <h4>APIs</h4>
+        <div class="tag-row"><span class="tag">OpenAI</span><span class="tag">Gemini</span><span class="tag">IBM Watson</span><span class="tag">STT / TTS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="sec-label reveal"><span class="num">05</span> ABOUT</div>
+    <h2 class="sec-title reveal">Engineering for the<br><span class="grad-text">messy real world.</span></h2>
+    <div class="about-grid">
+      <div class="glass about-main reveal">
+        <div class="about-id">
+          <img class="about-avatar" src="paras-formal-near-black-blazer-burgundy-tie.png" alt="Paras Kaushik">
+          <div><b>Paras Kaushik</b><span>AI ENGINEER · CO-FOUNDER, QUIETGRADIENT</span></div>
+        </div>
+        <p>I'm an AI Engineer with <strong>2+ years</strong> of production-grade expertise in <strong>Computer Vision, LLM/VLM fine-tuning, and RAG systems</strong>. I architected GradeSmith — a national-scale AI grading platform — and co-founded <strong><a href="https://quietgradient.com" target="_blank" rel="noopener">QuietGradient</a></strong>, the studio behind <a href="https://flashrapp.in" target="_blank" rel="noopener">Flashr</a>, an AI-native EdTech product for competitive exam preparation.</p>
+        <p>My deep experience spans <strong>handwritten OCR, agentic AI orchestration, GPU-efficient deployment, and multimodal fine-tuning</strong>. I care about the numbers: inference cost reductions and measurable accuracy improvements, not just demos that look good in a slide deck.</p>
+        <p>Presented GradeSmith at <strong>AI Summit 2026, Delhi</strong> to 500+ industry professionals and academic leaders — recognized for innovation in AI-driven education assessment.</p>
+        <div class="edu-box">
+          <span class="icon"><svg class="svg-icon"><use href="#i-cap"/></svg></span>
+          <div><b>B.Tech, Computer Science Engineering</b><span>MAIT, Baddi · 2021 — 2025</span></div>
+          <div class="cgpa"><b>9.23</b><span>CGPA</span></div>
+        </div>
+      </div>
+      <div class="achv-stack">
+        <div class="glass achv reveal"><span class="medal"><svg class="svg-icon"><use href="#i-mic"/></svg></span><div><b>AI Summit 2026, Delhi</b><p>Presented GradeSmith to 500+ industry professionals — recognized for innovation in AI-driven education assessment.</p></div></div>
+        <div class="glass achv reveal"><span class="medal"><svg class="svg-icon"><use href="#i-trophy"/></svg></span><div><b>Ideathon — 1st Place</b><p>Tongue Driven System (TDS) wheelchair — first place for innovation and technical excellence.</p></div></div>
+        <div class="glass achv reveal"><span class="medal"><svg class="svg-icon"><use href="#i-car"/></svg></span><div><b>Smart India Hackathon</b><p>Track-VAHAN — IoT vehicular accident detection &amp; emergency alerts via GPS, GSM, and onboard sensors.</p></div></div>
+      </div>
+    </div>
+    <div class="certs reveal">
+      <h4>Certifications</h4>
+      <div class="cert-row">
+        <span class="cert">Deep Learning Specialization — Andrew Ng</span>
+        <span class="cert">Machine Learning Specialization — Andrew Ng</span>
+        <span class="cert">Google Data Analyst Professional</span>
+        <span class="cert">Data Structures &amp; Algorithms Specialization</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="engage-grid">
+      <a class="glass engage reveal" href="hire.html">
+        <div class="engage-head"><span class="engage-icon"><svg class="svg-icon"><use href="#i-briefcase"/></svg></span><h3>Hire me</h3></div>
+        <p>Full-time AI engineering roles across Computer Vision, VLM fine-tuning, and RAG. I take research to production — and keep it running there.</p>
+        <span class="engage-link">How hiring me works <span class="arrow">→</span></span>
+      </a>
+      <a class="glass engage reveal" href="consulting.html">
+        <div class="engage-head"><span class="engage-icon"><svg class="svg-icon"><use href="#i-sliders"/></svg></span><h3>Consulting</h3></div>
+        <p>Short, scoped engagements: OCR pipelines, domain fine-tunes, GPU cost audits, agentic workflows — each with a target we agree on upfront.</p>
+        <span class="engage-link">How engagements run <span class="arrow">→</span></span>
+      </a>
+    </div>
+    <div class="contact-head reveal">
+      <div class="sec-label" style="justify-content:center"><span class="num">06</span> CONTACT</div>
+      <h2 class="contact-title">Have a problem your<br><span class="grad-text">models can't crack?</span></h2>
+      <p class="contact-sub">Hiring, consulting, or a stubborn technical question — send a message. I read everything and reply fast.</p>
+    </div>
+    <div class="glass contact-card reveal">
+      <div class="halo"></div>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Your name</label>
+            <input id="cf-name" name="name" type="text" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-topic">What's this about?</label>
+          <select id="cf-topic" name="topic">
+            <option>General</option>
+            <option>Hiring — full-time role</option>
+            <option>Consulting</option>
+            <option>Flashr / QuietGradient</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="cf-msg">Message</label>
+          <textarea id="cf-msg" name="message" placeholder="A couple of sentences is plenty to start…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Send message <span class="arrow">→</span></button>
+        <p class="form-note">Opens your email app with everything pre-filled — or write directly to paraskaushik862@gmail.com.</p>
+      </form>
+    </div>
+    <div class="contact-meta reveal">
+      <a href="mailto:paraskaushik862@gmail.com"><svg class="svg-icon"><use href="#i-mail"/></svg> paraskaushik862@gmail.com</a>
+      <button class="copy-chip" id="copy-email">copy</button>
+      <a href="https://wa.me/919215460007" target="_blank" rel="noopener"><svg class="svg-icon"><use href="#i-chat"/></svg> WhatsApp</a>
+      <a href="https://www.linkedin.com/in/paraskaushik07" target="_blank" rel="noopener"><svg class="svg-icon"><use href="#i-linkedin"/></svg> LinkedIn</a>
+      <a href="Paras_kaushik_ai.pdf" download><svg class="svg-icon"><use href="#i-download"/></svg> Resume (PDF)</a>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Paras Kaushik — designed &amp; hand-coded, no templates.</span>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/paraskaushik07" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://quietgradient.com" target="_blank" rel="noopener">QuietGradient</a>
+      <a href="https://flashrapp.in" target="_blank" rel="noopener">Flashr</a>
+      <a href="Paras_kaushik_ai.pdf" download>Resume</a>
+      <a href="mailto:paraskaushik862@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ AI TERMINAL ============ -->
+<div id="ai-overlay" aria-hidden="true">
+  <div id="ai-terminal" role="dialog" aria-label="Ask my AI resume">
+    <div class="ai-bar">
+      <span class="ai-dots"><i></i><i></i><i></i></span>
+      <span class="ai-title">resume-bot — paras kaushik</span>
+      <button class="ai-close" id="ai-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ai-log" id="ai-log"></div>
+    <div class="ai-suggest" id="ai-suggest">
+      <button data-q="What is GradeSmith?">GradeSmith</button>
+      <button data-q="Tell me about Flashr">Flashr</button>
+      <button data-q="What is your tech stack?">Tech stack</button>
+      <button data-q="What experience do you have?">Experience</button>
+      <button data-q="How do I contact you?">Contact</button>
+    </div>
+    <div class="ai-input-row">
+      <span class="ai-prompt">guest@paras-ai:~$</span>
+      <input id="ai-input" type="text" placeholder="Ask about my work, skills, projects…" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span class="ok">✓</span> Email copied to clipboard</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

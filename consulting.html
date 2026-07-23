@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Consulting — Paras Kaushik</title>
+<meta name="description" content="AI consulting with Paras Kaushik — OCR pipelines, domain fine-tuning, inference cost reduction, and agentic AI. Scoped engagements with a metric attached.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%235b83f7' d='M13 2 3 14h7l-1 8 10-12h-7l1-8z'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></symbol>
+  <symbol id="i-nodes" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3"/><path d="M14 2v4M8 10v4M16 18v4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+</svg>
+
+<!-- Background FX -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+<div class="grid-overlay" aria-hidden="true"></div>
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a class="brand" href="index.html"><span class="brand-dot"></span>paras.kaushik</a>
+  <button id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#toolkit">Stack</a></li>
+    <li><a href="hire.html">Hire me</a></li>
+    <li><a href="consulting.html" class="active">Consulting</a></li>
+    <li><a href="Paras_kaushik_ai.pdf" download>Resume</a></li>
+    <li><button class="theme-btn" id="theme-btn" aria-label="Toggle light/dark theme"><svg class="svg-icon i-sun"><use href="#i-sun"/></svg><svg class="svg-icon i-moon"><use href="#i-moon"/></svg></button></li>
+    <li><button class="nav-ai" id="ai-open"><svg class="svg-icon"><use href="#i-sparkle"/></svg> Ask the resume <kbd>⌘K</kbd></button></li>
+    <li><a class="nav-cta" href="#cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="sec-label"><span class="num">↳</span> CONSULTING</div>
+    <h1>Pick the metric.<br><span class="grad-text">I'll move it.</span></h1>
+    <p>Short, scoped engagements for teams that need production AI — not another proof-of-concept. Every project starts with a number we agree to change, and ends with a handover your team can run.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="mailto:paraskaushik862@gmail.com?subject=Consulting%20inquiry"><svg class="svg-icon"><use href="#i-mail"/></svg> Start a conversation <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="https://wa.me/919215460007" target="_blank" rel="noopener"><svg class="svg-icon"><use href="#i-chat"/></svg> WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ============ WHAT I TAKE ON ============ -->
+  <section>
+    <div class="sec-label reveal"><span class="num">01</span> WHAT I TAKE ON</div>
+    <h2 class="sec-title reveal">Four problems<br><span class="grad-text">I solve on repeat.</span></h2>
+    <div class="grid-2">
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-eye"/></svg></div>
+        <h3>Document AI &amp; OCR pipelines</h3>
+        <p>Handwritten OCR, layout parsing, strikethrough/cancellation handling — pipelines that survive real scans, not just clean samples.</p>
+        <div class="tag-row"><span class="tag">Qwen-VL</span><span class="tag">YOLO</span><span class="tag">OpenCV</span></div>
+      </div>
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-cpu"/></svg></div>
+        <h3>Domain fine-tuning</h3>
+        <p>SFT, RFT, and GRPO on your data — dataset design, augmentation, and an eval harness included so improvements are provable.</p>
+        <div class="tag-row"><span class="tag">SFT / RFT / GRPO</span><span class="tag">Hugging Face</span><span class="tag">Evals</span></div>
+      </div>
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-sliders"/></svg></div>
+        <h3>Inference cost reduction</h3>
+        <p>Profiling, batching, quantization, and GPU right-sizing. Precedent: grading costs cut 80%, ₹2 → ₹0.4 per page.</p>
+        <div class="tag-row"><span class="tag">vLLM</span><span class="tag">RunPod</span><span class="tag">Vast.ai</span></div>
+      </div>
+      <div class="glass do-card reveal">
+        <div class="icon"><svg class="svg-icon"><use href="#i-nodes"/></svg></div>
+        <h3>Agentic &amp; voice AI</h3>
+        <p>Multi-step LLM workflows, RAG over your documents, and real-time STT/TTS interfaces — orchestrated into one dependable system.</p>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Pipecat</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT RUNS ============ -->
+  <section>
+    <div class="sec-label reveal"><span class="num">02</span> HOW IT RUNS</div>
+    <h2 class="sec-title reveal">No retainers for vibes.<br><span class="grad-text">Milestones with numbers.</span></h2>
+    <div class="steps">
+      <div class="glass step reveal"><span class="n">STEP 01</span><h3>Scope call</h3><p>Free. We pick the one metric that matters — accuracy, cost, latency, throughput — and define done.</p></div>
+      <div class="glass step reveal"><span class="n">STEP 02</span><h3>Fixed milestones</h3><p>A short plan with weekly demos and a fixed price per milestone. No open-ended billing.</p></div>
+      <div class="glass step reveal"><span class="n">STEP 03</span><h3>Handover</h3><p>Code, evals, and docs in your repo — plus a walkthrough so your team owns it after I leave.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ RECEIPTS ============ -->
+  <section>
+    <div class="sec-label reveal"><span class="num">03</span> RECEIPTS</div>
+    <h2 class="sec-title reveal">Numbers from past work.</h2>
+    <div class="hero-stats" style="margin-top:0">
+      <div class="glass stat-card reveal"><div class="stat-val">20→8</div><div class="stat-key">CER on handwriting, %</div></div>
+      <div class="glass stat-card reveal"><div class="stat-val"><span class="count" data-target="80" data-suffix="%">0</span></div><div class="stat-key">Grading cost cut</div></div>
+      <div class="glass stat-card reveal"><div class="stat-val"><span class="count" data-target="60" data-suffix="">0</span></div><div class="stat-key">Sheets per minute</div></div>
+      <div class="glass stat-card reveal"><div class="stat-val"><span class="count" data-target="40" data-suffix="%+">0</span></div><div class="stat-key">Workflow speedup (KAIROS)</div></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="cta">
+    <div class="glass cta-band reveal">
+      <div class="halo"></div>
+      <h2>Tell me the number you need moved.</h2>
+      <p>One email with your current pipeline and the target — I'll reply with an honest read on whether I can help, and how.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:paraskaushik862@gmail.com?subject=Consulting%20inquiry"><svg class="svg-icon"><use href="#i-mail"/></svg> Email a consulting inquiry <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/919215460007" target="_blank" rel="noopener"><svg class="svg-icon"><use href="#i-chat"/></svg> WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Paras Kaushik — designed &amp; hand-coded, no templates.</span>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/paraskaushik07" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://quietgradient.com" target="_blank" rel="noopener">QuietGradient</a>
+      <a href="https://flashrapp.in" target="_blank" rel="noopener">Flashr</a>
+      <a href="Paras_kaushik_ai.pdf" download>Resume</a>
+      <a href="mailto:paraskaushik862@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ AI TERMINAL ============ -->
+<div id="ai-overlay" aria-hidden="true">
+  <div id="ai-terminal" role="dialog" aria-label="Ask my AI resume">
+    <div class="ai-bar">
+      <span class="ai-dots"><i></i><i></i><i></i></span>
+      <span class="ai-title">resume-bot — paras kaushik</span>
+      <button class="ai-close" id="ai-close" aria-label="Close">✕</button>
+    </div>
+    <div class="ai-log" id="ai-log"></div>
+    <div class="ai-suggest" id="ai-suggest">
+      <button data-q="What is GradeSmith?">GradeSmith</button>
+      <button data-q="Tell me about Flashr">Flashr</button>
+      <button data-q="What is your tech stack?">Tech stack</button>
+      <button data-q="What experience do you have?">Experience</button>
+      <button data-q="How do I contact you?">Contact</button>
+    </div>
+    <div class="ai-input-row">
+      <span class="ai-prompt">guest@paras-ai:~$</span>
+      <input id="ai-input" type="text" placeholder="Ask about my work, skills, projects…" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span class="ok">✓</span> Email copied to clipboard</div>
+
+<script src="script.js"></script>
+</body>
+</html>

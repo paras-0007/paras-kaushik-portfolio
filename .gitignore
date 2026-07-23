@@ -1,0 +1,8 @@
+# Reference material & local-only files — not part of the deployed site
+portf/
+__MACOSX/
+.DS_Store
+
+# Old / unused assets
+Paras Kaushik.pdf
+Professional transparent portrait (1).png
