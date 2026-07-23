@@ -602,7 +602,11 @@ footer{
 }
 @media(max-width:760px){
   nav{padding:16px 22px}
-  nav.scrolled{padding:12px 22px}
+  nav.scrolled{
+    padding:12px 22px;
+    background:rgba(9,11,18,.92);
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
   #menu-btn{display:flex}
   .nav-links{
     position:fixed;top:0;right:0;bottom:0;left:auto;z-index:105;
@@ -692,5 +696,6 @@ footer{
 }
 @media(max-width:760px){
   :root[data-theme="light"] .nav-links{background:rgba(245,246,250,.96)}
+  :root[data-theme="light"] nav.scrolled{background:rgba(245,246,250,.95)}
 }
 
