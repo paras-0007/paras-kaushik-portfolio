@@ -1,0 +1,9 @@
+{
+  // Cloudflare Worker serving the portfolio as static assets.
+  // Name must match the existing Workers service so kaushikparas.com stays bound.
+  "name": "paras-kaushik-portfolio",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./"
+  }
+}
