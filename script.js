@@ -23,14 +23,16 @@ addEventListener('scroll', () => {
 /* ---------- Mobile menu ---------- */
 const menuBtn = document.getElementById('menu-btn');
 const navLinks = document.getElementById('nav-links');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  menuBtn.classList.remove('open');
-  navLinks.classList.remove('open');
-}));
+const navScrim = document.getElementById('nav-scrim');
+function setMenu(open) {
+  menuBtn.classList.toggle('open', open);
+  navLinks.classList.toggle('open', open);
+  if (navScrim) navScrim.classList.toggle('open', open);
+  document.body.classList.toggle('no-scroll', open);
+}
+menuBtn.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+if (navScrim) navScrim.addEventListener('click', () => setMenu(false));
 
 /* ---------- Active nav link ---------- */
 const sections = [...document.querySelectorAll('section[id]')];
@@ -217,7 +219,7 @@ document.getElementById('ai-close').addEventListener('click', closeAI);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeAI(); });
 addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); overlay.classList.contains('open') ? closeAI() : openAI(); }
-  if (e.key === 'Escape') closeAI();
+  if (e.key === 'Escape') { closeAI(); setMenu(false); }
 });
 aiInput.addEventListener('keydown', e => {
   if (e.key === 'Enter') { ask(aiInput.value); aiInput.value = ''; }
