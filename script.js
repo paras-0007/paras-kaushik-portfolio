@@ -291,6 +291,8 @@ if (cform) cform.addEventListener('submit', async e => {
       })
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (String(data.success) !== 'true') throw new Error(data.message || 'send failed');
     cform.reset();
     showToast("Message sent — I'll reply soon");
   } catch (err) {
