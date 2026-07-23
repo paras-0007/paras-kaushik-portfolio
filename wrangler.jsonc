@@ -1,9 +1,17 @@
 {
   // Cloudflare Worker serving the portfolio as static assets.
-  // Name must match the existing Workers service so kaushikparas.com stays bound.
+  // Name must match the existing Workers service so the domains stay bound.
   "name": "paras-kaushik-portfolio",
   "compatibility_date": "2026-07-01",
+  "main": "src/worker.js",
   "assets": {
-    "directory": "./"
-  }
+    "directory": "./",
+    "binding": "ASSETS",
+    // Worker runs before asset serving so the www -> apex redirect always fires.
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "kaushikparas.com", "custom_domain": true },
+    { "pattern": "www.kaushikparas.com", "custom_domain": true }
+  ]
 }
