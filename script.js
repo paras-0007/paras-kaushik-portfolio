@@ -237,6 +237,13 @@ document.querySelectorAll('.ask-proj').forEach(b => {
 /* ---------- Copy email ---------- */
 const toast = document.getElementById('toast');
 let toastTimer;
+function showToast(msg) {
+  if (!toast) return;
+  toast.innerHTML = '<span class="ok">✓</span> ' + msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
 const copyBtn = document.getElementById('copy-email');
 if (copyBtn) copyBtn.addEventListener('click', async () => {
   try { await navigator.clipboard.writeText('paraskaushik862@gmail.com'); }
@@ -246,24 +253,55 @@ if (copyBtn) copyBtn.addEventListener('click', async () => {
     document.body.appendChild(ta); ta.select();
     document.execCommand('copy'); ta.remove();
   }
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+  showToast('Email copied to clipboard');
 });
 
-/* ---------- Contact form (mailto compose) ---------- */
+/* ---------- Contact form: direct delivery via FormSubmit, mailto fallback ---------- */
 const cform = document.getElementById('contact-form');
-if (cform) cform.addEventListener('submit', e => {
+if (cform) cform.addEventListener('submit', async e => {
   e.preventDefault();
-  const name = document.getElementById('cf-name').value.trim();
-  const email = document.getElementById('cf-email').value.trim();
+  const nameEl = document.getElementById('cf-name');
+  const emailEl = document.getElementById('cf-email');
+  const msgEl = document.getElementById('cf-msg');
+  const honey = document.getElementById('cf-honey');
   const topic = document.getElementById('cf-topic').value;
-  const msg = document.getElementById('cf-msg').value.trim();
-  if (!name) { document.getElementById('cf-name').focus(); return; }
-  if (!msg) { document.getElementById('cf-msg').focus(); return; }
-  const subject = encodeURIComponent('[Portfolio] ' + topic + ' — ' + name);
-  const body = encodeURIComponent(msg + '\n\n— ' + name + (email ? ' <' + email + '>' : ''));
-  location.href = 'mailto:paraskaushik862@gmail.com?subject=' + subject + '&body=' + body;
+  const name = nameEl.value.trim();
+  const email = emailEl.value.trim();
+  const msg = msgEl.value.trim();
+  if (!name) { nameEl.focus(); return; }
+  if (!email || !email.includes('@')) { emailEl.focus(); return; }
+  if (!msg) { msgEl.focus(); return; }
+  if (honey && honey.value) return;
+  const btn = cform.querySelector('.form-submit');
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/paraskaushik862@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        topic: topic,
+        message: msg,
+        _subject: '[Portfolio] ' + topic + ' — ' + name,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    cform.reset();
+    showToast("Message sent — I'll reply soon");
+  } catch (err) {
+    const subject = encodeURIComponent('[Portfolio] ' + topic + ' — ' + name);
+    const body = encodeURIComponent(msg + '\n\n— ' + name + ' <' + email + '>');
+    location.href = 'mailto:paraskaushik862@gmail.com?subject=' + subject + '&body=' + body;
+    showToast('Direct send failed — opened your email app instead');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = orig;
+  }
 });
 
 /* ---------- Theme toggle ---------- */
