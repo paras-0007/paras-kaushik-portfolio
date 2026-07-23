@@ -79,7 +79,11 @@ nav.scrolled{
 .brand{font-family:var(--font-mono);font-weight:600;font-size:15px;letter-spacing:.05em;display:flex;align-items:center;gap:10px}
 .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(91,131,247,.55)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
-.nav-links{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-links{display:flex;align-items:center;gap:6px;flex:1;min-width:0}
+.nav-menu{display:flex;align-items:center;gap:6px;list-style:none;margin:0 auto}
+.nav-actions{display:flex;align-items:center;gap:6px;list-style:none}
+.nav-home{display:flex;align-items:center;justify-content:center}
+.nav-home .svg-icon{width:15px;height:15px}
 .nav-links a{
   font-size:13.5px;font-weight:500;color:var(--ink-dim);
   padding:8px 14px;border-radius:99px;transition:all .25s var(--ease);
@@ -604,7 +608,9 @@ footer{
     opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
   }
   .nav-links.open{opacity:1;pointer-events:auto}
+  .nav-menu,.nav-actions{flex-direction:column;align-items:center;gap:14px;margin:0}
   .nav-links a{font-size:19px;padding:12px 26px}
+  .nav-home .svg-icon{width:22px;height:22px}
   .nav-links a.nav-cta{margin-left:0;font-size:16px;padding:13px 30px}
   .nav-ai{font-size:17px;padding:11px 24px}
   .now-building{gap:10px;padding:10px 16px 10px 10px;font-size:12.5px}

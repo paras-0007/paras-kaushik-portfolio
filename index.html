@@ -35,6 +35,7 @@
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9.5 9-7 9 7V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22v-8h6v8"/></symbol>
 </svg>
 
 <!-- Background FX -->
@@ -50,18 +51,23 @@
 <nav id="nav">
   <a class="brand" href="#hero"><span class="brand-dot"></span>paras.kaushik</a>
   <button id="menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#toolkit">Stack</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="hire.html">Hire me</a></li>
-    <li><a href="consulting.html">Consulting</a></li>
-    <li><a href="Paras_kaushik_ai.pdf" download>Resume</a></li>
-    <li><button class="theme-btn" id="theme-btn" aria-label="Toggle light/dark theme"><svg class="svg-icon i-sun"><use href="#i-sun"/></svg><svg class="svg-icon i-moon"><use href="#i-moon"/></svg></button></li>
-    <li><button class="nav-ai" id="ai-open"><svg class="svg-icon"><use href="#i-sparkle"/></svg> Ask the resume <kbd>⌘K</kbd></button></li>
-    <li><a class="nav-cta" href="#contact">Get in touch</a></li>
-  </ul>
+  <div class="nav-links" id="nav-links">
+    <ul class="nav-menu">
+      <li><a href="#hero" class="nav-home" aria-label="Home"><svg class="svg-icon"><use href="#i-home"/></svg></a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#toolkit">Stack</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="hire.html">Hire me</a></li>
+      <li><a href="consulting.html">Consulting</a></li>
+      <li><a href="Paras_kaushik_ai.pdf" download>Resume</a></li>
+    </ul>
+    <ul class="nav-actions">
+      <li><button class="theme-btn" id="theme-btn" aria-label="Toggle light/dark theme"><svg class="svg-icon i-sun"><use href="#i-sun"/></svg><svg class="svg-icon i-moon"><use href="#i-moon"/></svg></button></li>
+      <li><button class="nav-ai" id="ai-open"><svg class="svg-icon"><use href="#i-sparkle"/></svg> Ask the resume <kbd>⌘K</kbd></button></li>
+      <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+    </ul>
+  </div>
 </nav>
 
 <main>
